@@ -1,18 +1,18 @@
 <template>
  <div>
-  <Topo/>
-  <Conteudo></Conteudo>
+  <topo-padrao/>
+  <conteudo></conteudo>
  </div>
 </template>
 
 <script>
 import Conteudo from './components/layouts/V-Conteudo.vue'
-import Topo from './components/layouts/V-Topo.vue'
+import TopoPadrao from './components/layouts/TopoPadrao.vue'
 
 export default {
   name: 'App',
   components: {
-    Conteudo, Topo
+    Conteudo, TopoPadrao
   }
 }
 </script>
