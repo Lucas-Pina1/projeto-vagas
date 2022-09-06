@@ -1,29 +1,19 @@
 <template>
- <div>
-  <topo-padrao/>
-  <conteudo></conteudo>
- </div>
+  <div id="app">
+    <topo-padrao />
+    <conteudo></conteudo>
+  </div>
 </template>
 
 <script>
-import Conteudo from './components/layouts/V-Conteudo.vue'
-import TopoPadrao from './components/layouts/TopoPadrao.vue'
-
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    Conteudo, TopoPadrao
-  }
-}
+    Conteudo: () => import("@/components/layouts/V-Conteudo.vue"),
+    TopoPadrao: () => import("@/components/layouts/TopoPadrao.vue"),
+  },
+};
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style scoped>
 </style>
