@@ -2,9 +2,37 @@
   <div class="container py-4">
     <div class="row">
       <div class="col">
-        <div class="h-100 p-5 bg-light border rounded-3">
-          <h2>Pesquisar Vagas</h2>
-        </div>
+        <pesquisar-vaga></pesquisar-vaga>
+      </div>
+    </div>
+
+    <div class="row mt-5">
+      <div class="col-4">
+        <v-indicador
+          titulo="Vagas abertas"
+          indicador="100"
+          bg="bg-dark"
+          color="text-white"
+        ></v-indicador>
+      </div>
+
+      <div class="col-4">
+        <v-indicador
+          titulo="Profissionais cadastrados"
+          indicador="225"
+          bg="bg-dark"
+          color="text-white"
+        >
+        </v-indicador>
+      </div>
+
+      <div class="col-4">
+        <v-indicador
+          titulo="Visitantes online"
+          indicador="25"
+          bg="bg-dark"
+          color="text-white"
+        ></v-indicador>
       </div>
     </div>
   </div>
@@ -13,8 +41,11 @@
 <script>
 export default {
   name: "HomeView",
+  components: {
+    PesquisarVaga: () => import("@/components/comuns/PesquisarVaga.vue"),
+    VIndicador: () => import("@/components/comuns/V-Indicador.vue"),
+  },
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
