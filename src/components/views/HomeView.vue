@@ -9,12 +9,6 @@
     <div class="row mt-5">
       <div class="col">
         <v-vaga></v-vaga>
-        <div class="card-footer">
-          <small class="text-mutted"
-            >Salário: R$ 6.000,00 | Modalidade: Home Office | Tipo: CLT |
-            Publicação: 10/11/2021
-          </small>
-        </div>
       </div>
     </div>
 
