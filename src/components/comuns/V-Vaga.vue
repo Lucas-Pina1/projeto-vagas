@@ -17,12 +17,32 @@ export default {
   name: "v-vaga",
   // props: ["titulo", "descricao", "salario", "modalidade", "tipo", "publicacao"],
   props: {
-    titulo: String,
-    descricao: String,
-    salario: [Number, String],
-    modalidade: String,
-    tipo: String,
-    publicacao: String,
+    titulo: {
+      type: String,
+      required: true,
+    },
+    descricao: {
+      type: String,
+      default() {
+        return '*'.repeat(20);
+      },
+    },
+    salario: {
+      type: [Number, String],
+      required: true,
+    },
+    modalidade: {
+      type: String,
+      required: true,
+    },
+    tipo: {
+      type: String,
+      required: true,
+    },
+    publicacao: {
+      type: String,
+      required: true,
+    },
   },
 };
 </script>
