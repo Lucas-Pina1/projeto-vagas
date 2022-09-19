@@ -9,7 +9,7 @@
     <div class="row mt-3">
       <div class="col">
         <label class="form-label">Título da vaga</label>
-        <input type="text" class="form-control" />
+        <input type="text" class="form-control" v-model="titulo" />
         <div class="form-text">Por exemplo: Programador JavaScript e VueJS</div>
       </div>
     </div>
@@ -17,7 +17,11 @@
     <div class="row mt-3">
       <div class="col">
         <label class="form-label">Descrição</label>
-        <textarea type="text" class="form-control"></textarea>
+        <textarea
+          type="text"
+          class="form-control"
+          v-model="descricao"
+        ></textarea>
         <div class="form-text">Informe os detalhes da vaga:</div>
       </div>
     </div>
@@ -25,14 +29,15 @@
     <div class="row mt-3">
       <div class="col">
         <label class="form-label">Salário</label>
-        <input type="number" class="form-control" />
+        <input type="number" class="form-control" v-model="salario" />
         <div class="form-text">Informe o Salário</div>
       </div>
 
       <div class="col">
         <label class="form-label">Modalidade</label>
-        <select class="form-select">
-          <option value="1">Home Office</option>
+        <select class="form-select" v-model="modalidade">
+          <option value="" disabled>--Selecione</option>
+          <option value="1">Home Oficce</option>
           <option value="2">Presencial</option>
         </select>
         <div class="form-text">Informe onde as atividades serão realizadas</div>
@@ -40,7 +45,8 @@
 
       <div class="col">
         <label class="form-label">Tipo</label>
-        <select class="form-select">
+        <select class="form-select" v-model="tipo">
+          <option value="" disabled>--Selecione</option>
           <option value="1">CLT</option>
           <option value="2">PJ</option>
         </select>
@@ -49,8 +55,12 @@
     </div>
 
     <div class="row mt-3">
+      {{ titulo }} | {{ descricao }} | {{ salario }} | {{ modalidade }} |
+      {{ tipo }}
       <div class="col">
-        <button type="submit" class="btn btn-primary">Cadastrar</button>
+        <button type="submit" class="btn btn-primary" @click="salvarVaga()">
+          Cadastrar
+        </button>
       </div>
     </div>
   </div>
@@ -59,6 +69,27 @@
 <script>
 export default {
   name: "PublicarVaga",
+  data() {
+    return {
+      titulo: "",
+      descricao: "",
+      salario: "",
+      modalidade: "",
+      tipo: "",
+    };
+  },
+  methods: {
+    salvarVaga() {
+      let vaga = {
+        titulo: this.titulo,
+        descricao: this.descricao,
+        salario: this.salario,
+        modalidade: this.modalidade,
+        tipo: this.tipo,
+      };
+      localStorage.setItem("vagas", JSON.stringify(vaga));
+    },
+  },
 };
 </script>
 
