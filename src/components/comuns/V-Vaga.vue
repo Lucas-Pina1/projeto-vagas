@@ -6,7 +6,8 @@
     </div>
     <div class="card-footer">
       <small class="text-mutted"
-        >{{ salario }} | {{ modalidade }} | {{ tipo }} | {{ publicacao }}</small
+        >{{ salario }} | {{ getModalidade }} | {{ getTipo }} |
+        {{ publicacao }}</small
       >
     </div>
   </div>
@@ -24,7 +25,7 @@ export default {
     descricao: {
       type: String,
       default() {
-        return '*'.repeat(20);
+        return "*".repeat(20);
       },
     },
     salario: {
@@ -42,6 +43,24 @@ export default {
     publicacao: {
       type: String,
       required: true,
+    },
+    computed: {
+      getMOdalidae() {
+        switch (this.modaldiade) {
+          case "1":
+            return "Home Office";
+          case "2":
+            return "Presencial";
+        }
+      },
+      getTipo() {
+        switch (this.tipo) {
+          case "1":
+            return "CLT";
+          case "2":
+            return "PJ";
+        }
+      },
     },
   },
 };
