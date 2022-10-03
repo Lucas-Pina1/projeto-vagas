@@ -1,11 +1,8 @@
 <template>
   <div>
     <h1>Componente App</h1>
-    <button @click="desmontarComponente()">
-      Desmontar o componente Conteudo
-    </button>
-    <topo-padrao />
-    <conteudo v-if="visibilidade"></conteudo>
+    <topo-padrao @navegar="componente = $event" />
+    <conteudo v-if="visibilidade" :conteudo="componente"></conteudo>
   </div>
 </template>
 <script>
@@ -14,12 +11,8 @@ export default {
   data() {
     return {
       visibilidade: true,
+      componente: "Home",
     };
-  },
-  methods: {
-    desmontarComponente() {
-      this.visibilidade = false;
-    },
   },
   components: {
     Conteudo: () => import("@/components/layouts/V-Conteudo.vue"),

@@ -56,12 +56,8 @@ export default {
         2: "Presencial",
       };
       return tipoModalidade[this.modalidade];
-
-      // switch(this.modalidade) {
-      //     case '1': return 'Home Office'
-      //     case '2': return 'Presencial'
-      // }
     },
+
     getTipo() {
       const tipoContratacao = {
         1: "CLT",
@@ -69,6 +65,7 @@ export default {
       };
       return tipoContratacao[this.tipo];
     },
+
     getPublicacao() {
       let dataPublicacao = new Date(this.publicacao);
       return dataPublicacao.toLocaleDateString("pt-BR");
