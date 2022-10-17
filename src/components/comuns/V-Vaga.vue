@@ -10,6 +10,7 @@
         <div class="form-check form-switch">
           <input class="form-check-input" type="checkbox">
           <label class="form-check-label">Favoritar</label>
+          <button class="btn btn-danger" @click="dispararEventoComitt">teste</button>
         </div>
       </div>
 
@@ -84,5 +85,10 @@ export default {
       return dataPublicacao.toLocaleDateString("pt-BR");
     },
   },
+  methods: {
+    dispararEventoComitt() {
+      console.log('Chegamos até aqui');
+    }
+  }
 };
 </script>
