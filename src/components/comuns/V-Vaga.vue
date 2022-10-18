@@ -28,18 +28,16 @@
 </template>
 
 <script>
+import emitter from "@/services/emitter";
+
 export default {
   name: "V-Vaga",
   //props: ['tituloVagaTeste', 'descricaoVaga', 'salario', 'modalidade', 'tipo', 'publicacao'],
   props: {
-    titulo: {
-      type: String,
-      required: true,
-      validator(value) {
-        if (value.length < 6) return false; //se estiver inválido
-        return true; //se estiver válido
-      },
-    },
+   titulo: {
+            type: String,
+            required: true,
+        },
     descricao: {
       type: String,
       default() {
@@ -87,7 +85,7 @@ export default {
   },
   methods: {
     dispararEventoComitt() {
-      console.log('Chegamos até aqui');
+      emitter.emit('eventoGlobal1', 'Teste captura evento parametro')
     }
   }
 };

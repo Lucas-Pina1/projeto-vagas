@@ -33,8 +33,16 @@
 </template>
 
 <script>
+import emitter from "@/services/emitter";
+
 export default {
   name: "VagasFavoritas",
+
+  mounted() {
+    emitter.on("eventoGlobal1", (p) => {
+      console.log('Componente VagasFavoritas: ', p);
+    })
+  }
 };
 </script>
 
